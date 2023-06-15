@@ -1,0 +1,16 @@
+reset	
+# set term postscript eps enhanced color  
+# set output "5e1.eps" # xxx.epsファイルにグラフを出力
+set size 0.5 # 拡大したい場合は小さくする
+set key left bottom # 凡例の位置
+set grid 
+set xlabel "x"
+set ylabel "y"
+set xrange [2.:5.] # x軸の範囲
+#set yrange [-4.:4.] # y軸の範囲
+plot "05e3.txt" u 1:2 ti "y = f(x)" dt 1 lc 4 lw 3 w l,\
+     "05e3.txt" u 1:3 ti "y = f_{tr}(x)" dt 3 lc 8 lw 2 w l
+     
+# dtで線の種類、lcで線の色、lwで線の太さを指定
+# w l をつけると線になる。つけないとデータ点が表示される。
+# u 1:2 は1列目をx軸、2列目をy軸にとると言う意味
